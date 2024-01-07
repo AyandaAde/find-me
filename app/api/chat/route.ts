@@ -61,7 +61,7 @@ export async function POST(req: Request) {
         //save ai message into db
         await db.insert(_messages).values({
           chatId,
-          content: lastMessage.content,
+          content: completion,
           role: "system",
         });
       },
