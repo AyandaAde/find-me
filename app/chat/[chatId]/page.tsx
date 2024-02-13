@@ -27,22 +27,27 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
     }
     const currentChat = _chats.find(chat => chat.id === parseInt(chatId));
     return (
-        <div className="flex max-h-screen overflow-y-scroll hide-scrollbar">
-            <div className="flex w-full max-h-screen overflow-y-scroll hide-scrollbar">
-                {/* Chat sidebar */}
-                <div className="flex-[1] max-w-xs">
-                    <ChatSideBar chats={_chats} chatId={parseInt(chatId)} />
-                </div>
-                {/* pdf viewer */}
-                <div className="max-h-screen p-4 overflow-y-scroll hide-scrollbar flex-[5]">
-                    <PDFViewer pdf_url={currentChat?.pdfUrl || ""} />
-                </div>
-                {/* chat component */}
-                <div className="flex-[3] border-1-4 border-l-slate-200">
-                    <ChatComponent chatId={parseInt(chatId)} />
+        <>
+            <div className="flex justify-center lg:hidden">
+                <h1 className="text-3xl text-center font-semibold">Please use on Deskop.</h1>
+            </div>
+            <div className="flex max-h-screen overflow-y-scroll hide-scrollbar">
+                <div className="flex w-full max-h-screen overflow-y-scroll hide-scrollbar">
+                    {/* Chat sidebar */}
+                    <div className="flex-[1] max-w-xs">
+                        <ChatSideBar chats={_chats} chatId={parseInt(chatId)} />
+                    </div>
+                    {/* pdf viewer */}
+                    <div className="max-h-screen p-4 overflow-y-scroll hide-scrollbar flex-[5]">
+                        <PDFViewer pdf_url={currentChat?.pdfUrl || ""} />
+                    </div>
+                    {/* chat component */}
+                    <div className="flex-[3] border-1-4 border-l-slate-200">
+                        <ChatComponent chatId={parseInt(chatId)} />
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
