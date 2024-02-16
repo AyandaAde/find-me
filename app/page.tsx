@@ -6,6 +6,7 @@ import FileUpload from "@/components/FileUpload";
 import { chats } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
+import Footer from "@/components/Footer";
 export default async function Home() {
 
   const { userId } = await auth();
